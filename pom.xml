@@ -1,0 +1,10 @@
+stage('Read POM Properties') {
+    steps {
+        script {
+            // Read version from pom.xml dynamically
+            def pom = readMavenPom file: 'pom.xml'
+            String appVersion = pom.version
+            echo "Building version: ${appVersion}"
+        }
+    }
+}
